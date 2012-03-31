@@ -1,0 +1,16 @@
+Ivy/Content/obj
+Ivy/bin
+Ivy/obj
+Ceres/Content/obj
+Ceres/bin
+Ceres/obj
+IvyTests/Content/obj
+IvyTests/bin
+IvyTests/obj
+IvyMovies
+IvySounds
+Blackfire/Blackfire/obj
+Blackfire/BlackfireContent/obj
+*.suo
+*.cachefile
+*.user
