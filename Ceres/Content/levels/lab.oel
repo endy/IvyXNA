@@ -1,0 +1,29 @@
+<level>
+  <width>512</width>
+  <height>193</height>
+  <bg>
+    <bg_zone_lab x="0" y="0"/>
+  </bg>
+  <escape_bg>
+    <bg_zone_lab_escape x="0" y="0"/>
+  </escape_bg>
+  <platforms>
+    <rect x="0" y="128" w="64" h="8"/>
+    <rect x="64" y="136" w="8" h="8"/>
+    <rect x="72" y="144" w="8" h="8"/>
+    <rect x="80" y="152" w="8" h="8"/>
+    <rect x="88" y="160" w="8" h="8"/>
+    <rect x="96" y="168" w="8" h="8"/>
+    <rect x="104" y="176" w="304" h="8"/>
+    <rect x="408" y="168" w="8" h="8"/>
+    <rect x="416" y="160" w="8" h="8"/>
+    <rect x="424" y="152" w="8" h="8"/>
+    <rect x="432" y="144" w="8" h="8"/>
+    <rect x="440" y="136" w="8" h="8"/>
+    <rect x="448" y="128" w="64" h="8"/>
+  </platforms>
+  <portals>
+    <portal x="8" y="72" width="8" height="48" destZone="stairs" destX="200" destY="328"/>
+    <portal x="496" y="72" width="8" height="48" destZone="corridor" destX="24" destY="72"/>
+  </portals>
+</level>

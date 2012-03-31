@@ -1,0 +1,21 @@
+<level>
+  <width>256</width>
+  <height>193</height>
+  <bg>
+    <bg_zone_encounter x="0" y="0"/>
+  </bg>
+  <escape_bg>
+    <bg_zone_encounter_escape x="0" y="0"/>
+  </escape_bg>
+  <platforms>
+    <rect x="16" y="128" w="32" h="8"/>
+    <rect x="40" y="136" w="8" h="40"/>
+    <rect x="48" y="176" w="192" h="8"/>
+  </platforms>
+  <portals>
+    <portal x="8" y="72" width="8" height="48" destZone="corridor" destX="464" destY="72"/>
+  </portals>
+  <baddies>
+    <ridley x="144" y="40"/>
+  </baddies>
+</level>

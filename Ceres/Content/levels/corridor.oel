@@ -1,0 +1,17 @@
+<level>
+  <width>513</width>
+  <height>193</height>
+  <bg>
+    <bg_zone_corridor x="0" y="0"/>
+  </bg>
+  <escape_bg>
+    <bg_zone_corridor_escape x="0" y="0"/>
+  </escape_bg>
+  <platforms>
+    <rect x="0" y="128" w="512" h="8"/>
+  </platforms>
+  <portals>
+    <portal x="8" y="72" width="8" height="48" destZone="lab" destX="466" destY="72"/>
+    <portal x="496" y="72" width="8" height="48" destZone="encounter" destX="24" destY="72"/>
+  </portals>
+</level>

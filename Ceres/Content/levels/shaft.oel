@@ -1,0 +1,31 @@
+<level>
+  <width>256</width>
+  <height>705</height>
+  <bg>
+    <bg_zone_shaft x="0" y="0"/>
+  </bg>
+  <escape_bg>
+    <bg_zone_shaft_escape x="0" y="0"/>
+  </escape_bg>
+  <platforms>
+    <rect x="24" y="0" w="8" h="680"/>
+    <rect x="32" y="160" w="64" h="16"/>
+    <rect x="32" y="368" w="64" h="16"/>
+    <rect x="32" y="560" w="80" h="16"/>
+    <rect x="32" y="672" w="136" h="8"/>
+    <rect x="96" y="256" w="64" h="16"/>
+    <rect x="96" y="464" w="64" h="16"/>
+    <rect x="160" y="160" w="72" h="16"/>
+    <rect x="160" y="352" w="72" h="16"/>
+    <rect x="160" y="656" w="40" h="8"/>
+    <rect x="160" y="664" w="8" h="8"/>
+    <rect x="192" y="640" w="64" h="8"/>
+    <rect x="192" y="648" w="8" h="8"/>
+    <rect x="224" y="0" w="8" h="160"/>
+    <rect x="224" y="176" w="8" h="176"/>
+    <rect x="224" y="368" w="8" h="208"/>
+  </platforms>
+  <portals>
+    <portal x="232" y="584" width="8" height="48" destZone="open" destX="24" destY="72"/>
+  </portals>
+</level>

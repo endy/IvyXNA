@@ -1,0 +1,53 @@
+<project>
+  <name>Ceres</name>
+  <settings>
+    <defaultWidth>800</defaultWidth>
+    <minWidth>10</minWidth>
+    <maxWidth>1000</maxWidth>
+    <defaultHeight>600</defaultHeight>
+    <minHeight>10</minHeight>
+    <maxHeight>1000</maxHeight>
+    <workingDirectory>../art</workingDirectory>
+  </settings>
+  <tilesets>
+    
+  </tilesets>
+  <objects>
+    	<folder name="backgrounds">
+   		<object name="bg_zone_shaft" image="bg_zone_shaft.png" width="256" height="705" />
+		<object name="bg_zone_shaft_escape" image="bg_zone_shaft_escape.png" width="256" height="705" />
+    		<object name="bg_zone_open" image="bg_zone_open.png" width="512" height="193"  />
+    		<object name="bg_zone_open_escape" image="bg_zone_open_escape.png" width="512" height="193"  />
+    		<object name="bg_zone_lab" image="bg_zone_lab.png" width="512" height="193" />
+    		<object name="bg_zone_lab_escape" image="bg_zone_lab_escape.png" width="512" height="193" />
+    		<object name="bg_zone_stairs" image="bg_zone_stairs.png" width="256" height="449"  />
+    		<object name="bg_zone_stairs_escape" image="bg_zone_stairs_escape.png" width="256" height="449"  />
+    		<object name="bg_zone_corridor" image="bg_zone_corridor.png" width="512" height="193" />
+                <object name="bg_zone_corridor_escape" image="bg_zone_corridor_escape.png" width="512" height="193" />
+    		<object name="bg_zone_encounter" image="bg_zone_encounter.png" width="256" height="193" />
+    		<object name="bg_zone_encounter_escape" image="bg_zone_encounter_escape.png" width="256" height="193" />
+	</folder>
+	<folder name="entities">
+		<object name="portal" image="portal.png" width="8" height="8" resizableX="true" resizableY="true">
+			<values>
+				<string name="destZone" default="none" maxChars="25" />
+               			<integer name="destX" default="0" />
+				<integer name="destY" default="0" />
+ 			</values>
+		</object>
+	</folder>
+        <folder name="baddies">
+   	 	<object name="fireflea" image="fireflea.png" width="18" height="14" />
+        	<object name="ridley" image="ridley.png" width="82" height="100" />
+        </folder>
+  </objects>
+  <layers>
+    <objects name="bg" gridSize="16" exportAsObjects="true" />
+    <objects name="escape_bg" gridSize="16" exportAsObjects="true" />
+    <grid name="platforms" gridSize="8" exportAsObjects="true" />
+    <objects name="portals" gridSize="8" exportAsObjects="true" />
+    <objects name="baddies" gridSize="8" exportAsObjects="true" />
+    <objects name="escape_entities" gridSize="8" exportAsObjects="true" />
+  </layers>
+</project>
+
