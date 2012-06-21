@@ -89,14 +89,28 @@ namespace Quicksilver
     {
         public delegate void HandleEntityCollision(Entity self, Entity other);
 
+        // Projectile Only Handler
         public static void DamageEntity(Entity self, Entity other)
         {
-            other.ModifyEnergy(-10);
+            if (self.Parent != other)
+            {
+                other.ModifyEnergy(-100);
+                self.Energy = 0;
+            }
         }
     }
 
     class Entity
     {
+        public enum EntityMovementState
+        {
+            Walking,
+            Jumping,
+            Falling,
+            Flying
+        };
+
+
         public Vector2 Position { get; set; }
         public Vector2 Direction { get; set; }
         public Vector2 Speed { get; set; }
@@ -110,8 +124,12 @@ namespace Quicksilver
         public Texture2D Sprite { get; private set; }
         public Color Mask { get; set; }
 
+        public EntityMovementState MovementState { get; set; }
         public IMovement Movement = null;
+
         public Collisions.HandleEntityCollision handleCollision = null;
+
+        public Entity Parent { get; set; }
 
         public Entity(Texture2D inSprite)
         {
@@ -120,7 +138,7 @@ namespace Quicksilver
             Energy = 100;
             Position = new Vector2();
             Direction = new Vector2();
-            Speed = new Vector2(1, 1);
+            Speed = new Vector2(3, 1);
             Sprite = inSprite;
             Mask = Color.White;
 
@@ -141,13 +159,29 @@ namespace Quicksilver
 
             if (isAlive)
             {
+                UpdateMovementState();
+
                 if (Movement != null)
                 {
                     Movement.MoveEntity(this);
                 }
                 else
                 {
+                    // Player entity is the only one that has a non-null movement state 
+
                     Position = Position + Direction * Speed;
+                    
+                    if (MovementState == Entity.EntityMovementState.Falling)
+                    {
+                        Vector2 gravityConst = new Vector2(0, 4.0f);
+                        Position = Position + gravityConst;
+                    }
+
+                    if (MovementState == Entity.EntityMovementState.Jumping)
+                    {
+                        Vector2 jumpConst = new Vector2(0, -4.0f);
+                        Position = Position + jumpConst;
+                    }
                 }
 
                 Rectangle cRect = CollisionRect;
@@ -174,9 +208,31 @@ namespace Quicksilver
             }
         }
 
+        public void OnWorldCollision(Block block)
+        {
+            if (MovementState == EntityMovementState.Falling)
+            {
+                MovementState = EntityMovementState.Walking;
+            }
+        }
+
         public void ModifyEnergy(int energyAmount)
         {
             Energy += energyAmount;
+        }
+
+        private void UpdateMovementState()
+        {
+            // Update State Step
+            if (MovementState == EntityMovementState.Walking)
+            {
+                // check if falling, if set falling
+            }
+
+            if (MovementState == EntityMovementState.Jumping)
+            {
+                // if jump timeout
+            }
         }
     };
 }

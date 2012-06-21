@@ -19,24 +19,31 @@ namespace Quicksilver
         public static GraphicsDeviceManager graphics { get; private set; }
         SpriteBatch spriteBatch;
 
+        // Game State
         public static Entity Player { get; private set; }
         public static bool IsPaused { get; set; }
 
+        // UI
         List<IUserInterfaceElement> uiElementList;
+        Slider playerSpeed;
+        Slider jumpSpeed;
 
+        // Game Entities
         List<Entity> liveEntities;
         GamePadState lastGamePadState;
         MouseState lastMouseState;
         int remainingSpawnTime;
 
-        Slider playerSpeed;
-        Slider fireRate;
+        // Game World
+        List<Block> worldElements;
 
+        // Resources
         Texture2D playerSprite;
         Texture2D bulletSprite;
         Texture2D enemySprite;
         Texture2D upSprite;
         Texture2D downSprite;
+        Texture2D blockSprite;
 
         SpriteFont sliderFont;
 
@@ -57,21 +64,30 @@ namespace Quicksilver
         {
             base.Initialize();
 
+
+            // Setup the World
+            worldElements = new List<Block>();
+
+            CreateWorld();
+
+            // Setup Entities
             liveEntities = new List<Entity>();
 
             Player = new Entity(playerSprite);
             Player.Position = new Vector2(200, 200);
+            Player.MovementState = Entity.EntityMovementState.Falling;
             liveEntities.Add(Player);
 
             uiElementList = new List<IUserInterfaceElement>();
             playerSpeed = CreateSlider();
             playerSpeed.Position = new Point(600, 400);
             playerSpeed.Initialize();
+            playerSpeed.Value = (int)Player.Speed.X;
             uiElementList.Add(playerSpeed);
-            fireRate = CreateSlider();
-            fireRate.Position = new Point(600, 432);
-            fireRate.Initialize();
-            uiElementList.Add(fireRate);
+            jumpSpeed = CreateSlider();
+            jumpSpeed.Position = new Point(600, 432);
+            jumpSpeed.Initialize();
+            uiElementList.Add(jumpSpeed);
 
             remainingSpawnTime = 5000;
 
@@ -93,6 +109,7 @@ namespace Quicksilver
             bulletSprite = Content.Load<Texture2D>("art/fireball");
             upSprite = Content.Load<Texture2D>("art/up");
             downSprite = Content.Load<Texture2D>("art/down");
+            blockSprite = Content.Load<Texture2D>("art/32x32block");
 
             sliderFont = Content.Load<SpriteFont>("fonts/Slider");
         }
@@ -109,6 +126,22 @@ namespace Quicksilver
             bulletSprite.Dispose();
             upSprite.Dispose();
             downSprite.Dispose();
+            blockSprite.Dispose();
+        }
+
+        protected void CreateWorld()
+        {
+            Block b = new Block(new Rectangle(0, 400, 180, 32), blockSprite);
+            worldElements.Add(b);
+
+            b = new Block(new Rectangle(200, 400, 80, 32), blockSprite);
+            worldElements.Add(b);
+
+            b = new Block(new Rectangle(320, 400, 80, 32), blockSprite);
+            worldElements.Add(b);
+
+            b = new Block(new Rectangle(460, 400, 300, 32), blockSprite);
+            worldElements.Add(b);
         }
 
         protected void CreateBullet(Vector2 position, Vector2 direction)
@@ -117,8 +150,10 @@ namespace Quicksilver
             bullet.Position = position;
             bullet.Direction = direction;
             bullet.Speed = new Vector2(2, 2);
+            bullet.MovementState = Entity.EntityMovementState.Flying;
             bullet.Movement = new SimpleEntityMovement();
             bullet.handleCollision = Collisions.DamageEntity;
+            bullet.Parent = Player; ///@todo Temporary.  Refactor
 
             liveEntities.Add(bullet);
         }
@@ -130,6 +165,7 @@ namespace Quicksilver
             enemy.Position = position;
             enemy.Direction = new Vector2(-1, 1);
             enemy.Mask = Color.Red;
+            enemy.MovementState = Entity.EntityMovementState.Flying;
 
             if (enemyCount % 5 == 0)
             {
@@ -140,6 +176,7 @@ namespace Quicksilver
                 enemy.Movement = new AttackMovement();
                 enemy.Speed = new Vector2(0.01f, 0.01f);
             }
+
             enemyCount++;
             liveEntities.Add(enemy);
         }
@@ -209,6 +246,21 @@ namespace Quicksilver
                     CreateBullet(Player.Position, direction);
                 }
 
+                if (currentState.Buttons.B != lastGamePadState.Buttons.B)
+                {
+                    if ((Player.MovementState == Entity.EntityMovementState.Walking) &&
+                        (currentState.Buttons.B == ButtonState.Pressed))
+                    {
+                        Player.MovementState = Entity.EntityMovementState.Jumping;
+                    }
+
+                    if ((Player.MovementState == Entity.EntityMovementState.Jumping) &&
+                        (currentState.Buttons.B == ButtonState.Released))
+                    {
+                        Player.MovementState = Entity.EntityMovementState.Falling;
+                    }
+                }
+
                 // Update game state based on input
 
                 if ((currentState.DPad.Left != lastGamePadState.DPad.Left) ||
@@ -225,6 +277,18 @@ namespace Quicksilver
                     else
                     {
                         Player.Direction = new Vector2(0, 0);
+                    }
+                }
+
+                // Update entity states based on collisions
+                for (int eIdx = 0; eIdx < liveEntities.Count; ++eIdx)
+                {
+                    for (int bIdx = 0; bIdx < worldElements.Count; ++bIdx)
+                    {
+                        if (liveEntities[eIdx].CollisionRect.Intersects(worldElements[bIdx].CollisionRect))
+                        {
+                            liveEntities[eIdx].OnWorldCollision(worldElements[bIdx]);
+                        }
                     }
                 }
 
@@ -282,6 +346,11 @@ namespace Quicksilver
 
             spriteBatch.Begin();
 
+            foreach (Block b in worldElements)
+            {
+                b.Draw(spriteBatch);
+            }
+
             foreach (Entity e in liveEntities)
             {
                 e.Draw(spriteBatch);
@@ -296,6 +365,7 @@ namespace Quicksilver
             Point mousePos = new Point(lastMouseState.X, lastMouseState.Y);
             spriteBatch.DrawString(sliderFont, "Mouse Pos:" + mousePos.ToString(), Vector2.Zero, Color.White);
             spriteBatch.DrawString(sliderFont, "Player Energy: " + Player.Energy.ToString(), new Vector2(0, 16), Color.White);
+            spriteBatch.DrawString(sliderFont, "Entity Count: " + liveEntities.Count.ToString(), new Vector2(0, 32), Color.White);
 
             if (IsPaused)
             {
