@@ -111,7 +111,9 @@ namespace Quicksilver
             downSprite = Content.Load<Texture2D>("art/down");
             blockSprite = Content.Load<Texture2D>("art/32x32block");
 
+#if WINDOWS || XBOX
             sliderFont = Content.Load<SpriteFont>("fonts/Slider");
+#endif  // WINDOWS || XBOX
         }
 
         /// <summary>
@@ -186,7 +188,10 @@ namespace Quicksilver
             Slider s = new Slider();
             s.UpSprite = upSprite;
             s.DownSprite = downSprite;
+
+#if WINDOWS || XBOX
             s.SliderFont = sliderFont;
+#endif // WINDOWS || XBOX
 
             return s;
         }
@@ -363,12 +368,16 @@ namespace Quicksilver
 
             // Draw Mouse Position
             Point mousePos = new Point(lastMouseState.X, lastMouseState.Y);
+
+#if WINDOWS || XBOX
             spriteBatch.DrawString(sliderFont, "Mouse Pos:" + mousePos.ToString(), Vector2.Zero, Color.White);
             spriteBatch.DrawString(sliderFont, "Player Energy: " + Player.Energy.ToString(), new Vector2(0, 16), Color.White);
             spriteBatch.DrawString(sliderFont, "Entity Count: " + liveEntities.Count.ToString(), new Vector2(0, 32), Color.White);
+#endif // WINDOWS || XBOX
 
             if (IsPaused)
             {
+#if WINDOWS || XBOX
                 if (Player.isAlive)
                 {
                     spriteBatch.DrawString(sliderFont, "Paused", new Vector2(380, 280), Color.Blue);
@@ -377,6 +386,7 @@ namespace Quicksilver
                 {
                     spriteBatch.DrawString(sliderFont, "GAME OVER", new Vector2(380, 280), Color.Red);
                 }
+#endif // WINDOWS || XBOX
             }
 
             spriteBatch.End();

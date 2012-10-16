@@ -2,13 +2,13 @@ using System;
 
 namespace Quicksilver
 {
-#if WINDOWS || XBOX
+#if WINDOWS || XBOX || PSS
     static class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             using (Quicksilver game = new Quicksilver())
             {

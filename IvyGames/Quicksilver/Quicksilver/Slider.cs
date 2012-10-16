@@ -69,8 +69,10 @@ namespace Quicksilver
             spriteBatch.Draw(DownSprite, DownRectPosition, Color.White);
             spriteBatch.Draw(UpSprite, UpRectPosition, Color.White);
 
+#if WINDOWS || XBOX
             Vector2 valueStringPos = new Vector2(ValueDisplayPosition.Left, ValueDisplayPosition.Top);
             spriteBatch.DrawString(SliderFont, Value.ToString(), valueStringPos, Color.White);
+#endif // WINDOWS || XBOX
         }
     }
 }
