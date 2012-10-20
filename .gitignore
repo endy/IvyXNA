@@ -9,9 +9,12 @@ IvyTests/bin/*
 IvyTests/obj/*
 IvyMovies
 IvySounds
+Blackfire/Blackfire/bin
 Blackfire/Blackfire/obj
 Blackfire/BlackfireContent/obj
 *.suo
 *.cachefile
 *.user
 *.pdb
+*.pidb
+*.userprefs
