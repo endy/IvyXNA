@@ -122,7 +122,7 @@ namespace Ivy
             IvySpriteBatch = new SpriteBatch(GraphicsDevice);
         
             ///@todo move to console class
-            consoleFont = Content.Load<SpriteFont>("Fonts\\Console");
+            consoleFont = Content.Load<SpriteFont>(@"Fonts\\Console");
             consolePos = new Vector2(40, 50);
         }
 

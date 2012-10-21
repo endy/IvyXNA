@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoGame.Framework.PSMobile
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lidgren.Network.PSMobile", "..\MonoGame\ThirdParty\Lidgren.Network\Lidgren.Network.PSMobile.csproj", "{167676EE-E2D5-440A-BB2B-EFBD02BC8493}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ceres.PSMobile", "Ceres\Ceres.PSMobile.csproj", "{83E6C8A6-BC50-4A33-9669-C55426830A34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,12 +23,16 @@ Global
 		{167676EE-E2D5-440A-BB2B-EFBD02BC8493}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{167676EE-E2D5-440A-BB2B-EFBD02BC8493}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{167676EE-E2D5-440A-BB2B-EFBD02BC8493}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83E6C8A6-BC50-4A33-9669-C55426830A34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83E6C8A6-BC50-4A33-9669-C55426830A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83E6C8A6-BC50-4A33-9669-C55426830A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83E6C8A6-BC50-4A33-9669-C55426830A34}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EA26E76F-FDFE-4A8C-B5A3-C3B5761E28F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EA26E76F-FDFE-4A8C-B5A3-C3B5761E28F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA26E76F-FDFE-4A8C-B5A3-C3B5761E28F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA26E76F-FDFE-4A8C-B5A3-C3B5761E28F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Ivy\Ivy.PSMobile.csproj
+		StartupItem = Ceres\Ceres.PSMobile.csproj
 	EndGlobalSection
 EndGlobal
