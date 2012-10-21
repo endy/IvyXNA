@@ -4,16 +4,6 @@
         <name>OgmoXNA</name>
     </assembly>
     <members>
-        <member name="T:OgmoXNA.Layers.OgmoLayer">
-            <summary>
-            Contains data about an Ogmo Editor layer.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.Layers.OgmoLayer.Name">
-            <summary>
-            Gets the name of the layer.
-            </summary>
-        </member>
         <member name="T:OgmoXNA.Values.OgmoStringValue">
             <summary>
             Contains data for an Ogmo Editor string value object.
@@ -53,6 +43,138 @@
         <member name="M:OgmoXNA.Values.OgmoStringValue.#ctor">
             <summary>
             Creates an instance of <see cref="T:OgmoXNA.Values.OgmoStringValue"/>.
+            </summary>
+        </member>
+        <member name="T:OgmoXNA.Values.OgmoIntegerValue">
+            <summary>
+            Contains data for an Ogmo Editor integer value object.
+            </summary>
+        </member>
+        <member name="M:OgmoXNA.Values.OgmoIntegerValue.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:OgmoXNA.Values.OgmoIntegerValue"/>.
+            </summary>
+        </member>
+        <member name="T:OgmoXNA.OgmoProjectReader">
+            <summary>
+            Reads <see cref="T:OgmoXNA.OgmoProject"/> objects from the content pipeline.
+            </summary>
+        </member>
+        <member name="M:OgmoXNA.OgmoProjectReader.Read(Microsoft.Xna.Framework.Content.ContentReader,OgmoXNA.OgmoProject)">
+            <summary>
+            Reads binary data into an <see cref="T:OgmoXNA.OgmoProject"/> object.
+            </summary>
+            <param name="input">The <see cref="T:Microsoft.Xna.Framework.Content.ContentReader"/> to read from.</param>
+            <param name="existingInstance">An existing instance of <see cref="T:OgmoXNA.OgmoProject"/>.</param>
+            <returns>Returns a configured <see cref="T:OgmoXNA.OgmoLevel"/> object.</returns>
+        </member>
+        <member name="T:OgmoXNA.OgmoObject">
+            <summary>
+            Contains data for an Ogmo Editor object.
+            </summary>
+        </member>
+        <member name="M:OgmoXNA.OgmoObject.GetValue``1(System.String)">
+            <summary>
+            Gets the specified value.
+            </summary>
+            <typeparam name="T">The type of value.</typeparam>
+            <param name="name">The name of the value.</param>
+            <returns>Returns the specified value if it exists; otherwise <c>null</c>.</returns>
+        </member>
+        <member name="P:OgmoXNA.OgmoObject.Height">
+            <summary>
+            Gets the height (in pixels) of the object.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.OgmoObject.IsTiled">
+            <summary>
+            Gets whether the object's texture should be tiled or stretched if its source rectangle is larger 
+            than its texture.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.OgmoObject.Name">
+            <summary>
+            Gets the name of the object.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.OgmoObject.Nodes">
+            <summary>
+            Gets the object's nodes.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.OgmoObject.Origin">
+            <summary>
+            Gets the origin of the object.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.OgmoObject.Position">
+            <summary>
+            Gets the position of the object.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.OgmoObject.Rotation">
+            <summary>
+            Gets the rotation angle of the object.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.OgmoObject.Source">
+            <summary>
+            Gets the source rectangle of the object.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.OgmoObject.Texture">
+            <summary>
+            Gets the texture of the object.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.OgmoObject.Values">
+            <summary>
+            Gets the object's values.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.OgmoObject.Width">
+            <summary>
+            Gets the width (in pixels) of the object.
+            </summary>
+        </member>
+        <member name="T:OgmoXNA.Layers.Settings.OgmoObjectLayerSettings">
+            <summary>
+            Contains settings for an Ogmo Editor object layer.
+            </summary>
+        </member>
+        <member name="T:OgmoXNA.Layers.Settings.OgmoLayerSettings">
+            <summary>
+            Contains settings for an Ogmo Editor layer.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.Layers.Settings.OgmoLayerSettings.GridColor">
+            <summary>
+            Gets the color of the layer's grid.  Cosmetic only.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.Layers.Settings.OgmoLayerSettings.GridDrawSize">
+            <summary>
+            Gets the cell size of the layer's grid when rendering.  Cosmetic only.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.Layers.Settings.OgmoLayerSettings.GridSize">
+            <summary>
+            Gets the cell size of the layer's grid.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.Layers.Settings.OgmoLayerSettings.Name">
+            <summary>
+            Gets the name of the layer.
+            </summary>
+        </member>
+        <member name="T:OgmoXNA.Values.OgmoNumberValue">
+            <summary>
+            Contains data for an Ogmo Editor number (float) value object.
+            </summary>
+        </member>
+        <member name="M:OgmoXNA.Values.OgmoNumberValue.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:OgmoXNA.Values.OgmoNumberValue"/>.
             </summary>
         </member>
         <member name="T:OgmoXNA.Values.OgmoBooleanValueTemplate">
@@ -96,44 +218,139 @@
             Creates an instance of <see cref="T:OgmoXNA.Values.OgmoBooleanValue"/>.
             </summary>
         </member>
-        <member name="T:OgmoXNA.Layers.Settings.OgmoObjectLayerSettings">
+        <member name="T:OgmoXNA.OgmoLevelReader">
             <summary>
-            Contains settings for an Ogmo Editor object layer.
+            Reads <see cref="T:OgmoXNA.OgmoLevel"/> objects from the content pipeline.
             </summary>
         </member>
-        <member name="T:OgmoXNA.Layers.Settings.OgmoLayerSettings">
+        <member name="M:OgmoXNA.OgmoLevelReader.Read(Microsoft.Xna.Framework.Content.ContentReader,OgmoXNA.OgmoLevel)">
             <summary>
-            Contains settings for an Ogmo Editor layer.
+            Reads binary data into an <see cref="T:OgmoXNA.OgmoLevel"/> object.
+            </summary>
+            <param name="input">The <see cref="T:Microsoft.Xna.Framework.Content.ContentReader"/> to read from.</param>
+            <param name="existingInstance">An existing instance of <see cref="T:OgmoXNA.OgmoLevel"/>.</param>
+            <returns>Returns a configured <see cref="T:OgmoXNA.OgmoLevel"/> object.</returns>
+        </member>
+        <member name="T:OgmoXNA.Layers.OgmoGridLayer">
+            <summary>
+            Contains data about an Ogmo Editor grid layer.
             </summary>
         </member>
-        <member name="P:OgmoXNA.Layers.Settings.OgmoLayerSettings.GridColor">
+        <member name="T:OgmoXNA.Layers.OgmoLayer">
             <summary>
-            Gets the color of the layer's grid.  Cosmetic only.
+            Contains data about an Ogmo Editor layer.
             </summary>
         </member>
-        <member name="P:OgmoXNA.Layers.Settings.OgmoLayerSettings.GridDrawSize">
-            <summary>
-            Gets the cell size of the layer's grid when rendering.  Cosmetic only.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.Layers.Settings.OgmoLayerSettings.GridSize">
-            <summary>
-            Gets the cell size of the layer's grid.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.Layers.Settings.OgmoLayerSettings.Name">
+        <member name="P:OgmoXNA.Layers.OgmoLayer.Name">
             <summary>
             Gets the name of the layer.
             </summary>
         </member>
-        <member name="T:OgmoXNA.Values.OgmoNumberValue">
+        <member name="P:OgmoXNA.Layers.OgmoGridLayer.RawData">
             <summary>
-            Contains data for an Ogmo Editor number (float) value object.
+            Gets the raw grid data for the layer.  This property is only populated when 
+            <see cref="P:OgmoXNA.Layers.Settings.OgmoGridLayerSettings.ExportAsObjects"/> is <c>false</c>; otherwise, it returns <c>null</c>.
             </summary>
         </member>
-        <member name="M:OgmoXNA.Values.OgmoNumberValue.#ctor">
+        <member name="P:OgmoXNA.Layers.OgmoGridLayer.RectangleData">
+            <summary>
+            Gets the rectangle data for the layer.  This property is only populated when 
+            <see cref="P:OgmoXNA.Layers.Settings.OgmoGridLayerSettings.ExportAsObjects"/> is <c>true</c>; otherwise, it returns <c>null</c>.
+            </summary>
+        </member>
+        <member name="T:OgmoXNA.Values.OgmoBooleanValue">
+            <summary>
+            Contains data for an Ogmo Editor boolean value.
+            </summary>
+        </member>
+        <member name="M:OgmoXNA.Values.OgmoBooleanValue.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:OgmoXNA.Values.OgmoBooleanValue"/>.
+            </summary>
+        </member>
+        <member name="T:OgmoXNA.Values.OgmoNumberValueTemplate">
+            <summary>
+            Contains data about Ogmo Editor number (float) value objects.
+            </summary>
+        </member>
+        <member name="M:OgmoXNA.Values.OgmoNumberValueTemplate.#ctor">
             <summary>
             Creates an instance of <see cref="T:OgmoXNA.Values.OgmoNumberValue"/>.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.Values.OgmoNumberValueTemplate.Max">
+            <summary>
+            Gets the max number (float) value.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.Values.OgmoNumberValueTemplate.Min">
+            <summary>
+            Gets the min number (float) value.
+            </summary>
+        </member>
+        <member name="T:OgmoXNA.OgmoProject">
+            <summary>
+            Contains data about an Ogmo Editor project.
+            </summary>
+        </member>
+        <member name="M:OgmoXNA.OgmoProject.GetLayerSettings``1(System.String)">
+            <summary>
+            Gets the specified layer settings.
+            </summary>
+            <typeparam name="T">The type of layer settings to retrieve.</typeparam>
+            <param name="name">The name of the layer settings.</param>
+            <returns>Returns the specified layer settings if found; otherwise, <c>null</c>.</returns>
+        </member>
+        <member name="M:OgmoXNA.OgmoProject.GetObjectTemplate(System.String)">
+            <summary>
+            Gets the specified object template.
+            </summary>
+            <param name="name">The name of the object template.</param>
+            <returns>Returns the specified object template if found; otherwise, <c>null</c>.</returns>
+        </member>
+        <member name="M:OgmoXNA.OgmoProject.GetTileset(System.String)">
+            <summary>
+            Gets the specified tileset.
+            </summary>
+            <param name="name">The name of the tileset.</param>
+            <returns>Returns the specified tileset if found; otherwise, <c>null</c>.</returns>
+        </member>
+        <member name="M:OgmoXNA.OgmoProject.GetValueTemplate``1(System.String)">
+            <summary>
+            Gets the specified project value template.
+            </summary>
+            <typeparam name="T">The type of value template to retrieve.</typeparam>
+            <param name="name">The name of the value template.</param>
+            <returns>Returns the specified value template if found; otherwise, <c>null</c>.</returns>
+        </member>
+        <member name="P:OgmoXNA.OgmoProject.LayerSettings">
+            <summary>
+            Gets the project layer settings.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.OgmoProject.Name">
+            <summary>
+            Gets the name of the project.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.OgmoProject.ObjectTemplates">
+            <summary>
+            Gets the project objects.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.OgmoProject.Settings">
+            <summary>
+            Gets the settings for the project.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.OgmoProject.Tilesets">
+            <summary>
+            Gets the project tilesets.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.OgmoProject.ValueTemplates">
+            <summary>
+            Gets the project values.
             </summary>
         </member>
         <member name="T:OgmoXNA.OgmoObjectTemplate">
@@ -209,16 +426,6 @@
             Gets the width (in pixels) of the object.
             </summary>
         </member>
-        <member name="T:OgmoXNA.Values.OgmoIntegerValue">
-            <summary>
-            Contains data for an Ogmo Editor integer value object.
-            </summary>
-        </member>
-        <member name="M:OgmoXNA.Values.OgmoIntegerValue.#ctor">
-            <summary>
-            Creates an instance of <see cref="T:OgmoXNA.Values.OgmoIntegerValue"/>.
-            </summary>
-        </member>
         <member name="T:OgmoXNA.Values.OgmoIntegerValueTemplate">
             <summary>
             Contains data for an Ogmo Editor integer value object.
@@ -239,104 +446,247 @@
             Gets the min integer value.
             </summary>
         </member>
-        <member name="T:OgmoXNA.OgmoObject">
+        <member name="T:OgmoXNA.OgmoTileset">
             <summary>
-            Contains data for an Ogmo Editor object.
+            Contains data about an Ogmo Editor tileset.
             </summary>
         </member>
-        <member name="M:OgmoXNA.OgmoObject.GetValue``1(System.String)">
+        <member name="P:OgmoXNA.OgmoTileset.Name">
             <summary>
-            Gets the specified value.
-            </summary>
-            <typeparam name="T">The type of value.</typeparam>
-            <param name="name">The name of the value.</param>
-            <returns>Returns the specified value if it exists; otherwise <c>null</c>.</returns>
-        </member>
-        <member name="P:OgmoXNA.OgmoObject.Height">
-            <summary>
-            Gets the height (in pixels) of the object.
+            Gets the name of the tileset.
             </summary>
         </member>
-        <member name="P:OgmoXNA.OgmoObject.IsTiled">
+        <member name="P:OgmoXNA.OgmoTileset.Sources">
             <summary>
-            Gets whether the object's texture should be tiled or stretched if its source rectangle is larger 
-            than its texture.
+            Gets the rectangle sources for the tileset texture.
             </summary>
         </member>
-        <member name="P:OgmoXNA.OgmoObject.Name">
+        <member name="P:OgmoXNA.OgmoTileset.Texture">
             <summary>
-            Gets the name of the object.
+            Gets the tileset texture.
             </summary>
         </member>
-        <member name="P:OgmoXNA.OgmoObject.Nodes">
+        <member name="P:OgmoXNA.OgmoTileset.TextureFile">
             <summary>
-            Gets the object's nodes.
+            Gets the filename of the tileset texture, relative to 
+            <see cref="P:OgmoXNA.OgmoProjectSettings.WorkingDirectory"/>.
             </summary>
         </member>
-        <member name="P:OgmoXNA.OgmoObject.Origin">
+        <member name="P:OgmoXNA.OgmoTileset.TileHeight">
             <summary>
-            Gets the origin of the object.
+            Gets the height (in pixels) of each tile texture in the tileset.
             </summary>
         </member>
-        <member name="P:OgmoXNA.OgmoObject.Position">
+        <member name="P:OgmoXNA.OgmoTileset.TileWidth">
             <summary>
-            Gets the position of the object.
+            Gets the width (in pixels) of each tile texture in the tileset.
             </summary>
         </member>
-        <member name="P:OgmoXNA.OgmoObject.Rotation">
+        <member name="T:OgmoXNA.OgmoProjectSettings">
             <summary>
-            Gets the rotation angle of the object.
+            Contains settings for an Ogmo Editor project.
             </summary>
         </member>
-        <member name="P:OgmoXNA.OgmoObject.Source">
+        <member name="P:OgmoXNA.OgmoProjectSettings.Height">
             <summary>
-            Gets the source rectangle of the object.
+            Gets the default height (in pixels) of project levels.
             </summary>
         </member>
-        <member name="P:OgmoXNA.OgmoObject.Texture">
+        <member name="P:OgmoXNA.OgmoProjectSettings.MaxHeight">
             <summary>
-            Gets the texture of the object.
+            Gets the max height (in pixels) of project levels.
             </summary>
         </member>
-        <member name="P:OgmoXNA.OgmoObject.Values">
+        <member name="P:OgmoXNA.OgmoProjectSettings.MaxWidth">
             <summary>
-            Gets the object's values.
+            Gets the max width (in pixels) of project levels.
             </summary>
         </member>
-        <member name="P:OgmoXNA.OgmoObject.Width">
+        <member name="P:OgmoXNA.OgmoProjectSettings.MinHeight">
             <summary>
-            Gets the width (in pixels) of the object.
+            Gets the min height (in pixels) of project levels.
             </summary>
         </member>
-        <member name="T:OgmoXNA.Layers.OgmoGridLayer">
+        <member name="P:OgmoXNA.OgmoProjectSettings.MinWidth">
             <summary>
-            Contains data about an Ogmo Editor grid layer.
+            Gets the min width (in pixels) of project levels.
             </summary>
         </member>
-        <member name="P:OgmoXNA.Layers.OgmoGridLayer.RawData">
+        <member name="P:OgmoXNA.OgmoProjectSettings.Width">
             <summary>
-            Gets the raw grid data for the layer.  This property is only populated when 
-            <see cref="P:OgmoXNA.Layers.Settings.OgmoGridLayerSettings.ExportAsObjects"/> is <c>false</c>; otherwise, it returns <c>null</c>.
+            Gets the default width (in pixels) of project levels.
             </summary>
         </member>
-        <member name="P:OgmoXNA.Layers.OgmoGridLayer.RectangleData">
+        <member name="P:OgmoXNA.OgmoProjectSettings.WorkingDirectory">
             <summary>
-            Gets the rectangle data for the layer.  This propery is only populated when 
-            <see cref="P:OgmoXNA.Layers.Settings.OgmoGridLayerSettings.ExportAsObjects"/> is <c>true</c>; otherwise, it returns <c>null</c>.
+            Gets the working directory of project assets relative to the project file.
             </summary>
         </member>
-        <member name="T:OgmoXNA.OgmoProjectReader">
+        <member name="T:OgmoXNA.Layers.OgmoTileLayer">
             <summary>
-            Reads <see cref="T:OgmoXNA.OgmoProject"/> objects from the content pipeline.
+            Contains data about an Ogmo Editor tile layer.
             </summary>
         </member>
-        <member name="M:OgmoXNA.OgmoProjectReader.Read(Microsoft.Xna.Framework.Content.ContentReader,OgmoXNA.OgmoProject)">
+        <member name="M:OgmoXNA.Layers.OgmoTileLayer.GetTileset(System.String)">
             <summary>
-            Reads binary data into an <see cref="T:OgmoXNA.OgmoProject"/> object.
+            Gets the specified tileset.
             </summary>
-            <param name="input">The <see cref="T:Microsoft.Xna.Framework.Content.ContentReader"/> to read from.</param>
-            <param name="existingInstance">An existing instance of <see cref="T:OgmoXNA.OgmoProject"/>.</param>
-            <returns>Returns a configured <see cref="T:OgmoXNA.OgmoLevel"/> object.</returns>
+            <param name="name">The name of the tileset.</param>
+            <returns>Returns the specified tileset if it exists; otherwise, <c>null</c>.</returns>
+        </member>
+        <member name="P:OgmoXNA.Layers.OgmoTileLayer.TileHeight">
+            <summary>
+            Gets the height (in pixels) of tiles in the layer.  Only valid if 
+            <see cref="P:OgmoXNA.Layers.Settings.OgmoTileLayerSettings.ExportTileSize"/> is <c>true</c>, and 
+            <see cref="P:OgmoXNA.Layers.Settings.OgmoTileLayerSettings.MultipleTilesets"/> is <c>false</c>.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.Layers.OgmoTileLayer.Tiles">
+            <summary>
+            Gets the layer's tiles.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.Layers.OgmoTileLayer.Tilesets">
+            <summary>
+            Gets the layer's tilesets.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.Layers.OgmoTileLayer.TileWidth">
+            <summary>
+            Gets the width (in pixels) of tiles in the layer.  Only valid if 
+            <see cref="P:OgmoXNA.Layers.Settings.OgmoTileLayerSettings.ExportTileSize"/> is <c>true</c>, and 
+            <see cref="P:OgmoXNA.Layers.Settings.OgmoTileLayerSettings.MultipleTilesets"/> is <c>false</c>.
+            </summary>
+        </member>
+        <member name="T:OgmoXNA.Layers.Settings.OgmoGridLayerSettings">
+            <summary>
+            Contains settings for an Ogmo Editor grid layer.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.Layers.Settings.OgmoGridLayerSettings.ExportAsObjects">
+            <summary>
+            Gets whether the grid data should be exported as a series of rectangles (true) or as a 
+            series of individual cells (false).
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.Layers.Settings.OgmoGridLayerSettings.NewLine">
+            <summary>
+            Gets the string value that delimits cell data if <see cref="P:OgmoXNA.Layers.Settings.OgmoGridLayerSettings.ExportAsObjects"/> is false.
+            </summary>
+        </member>
+        <member name="T:OgmoXNA.OgmoNode">
+            <summary>
+            Contains data about an Ogmo Editor object node.
+            </summary>
+        </member>
+        <member name="M:OgmoXNA.OgmoNode.#ctor(Microsoft.Xna.Framework.Vector2)">
+            <summary>
+            Creates an instance of <see cref="T:OgmoXNA.OgmoNode"/>.
+            </summary>
+            <param name="position">The position of the node.</param>
+        </member>
+        <member name="P:OgmoXNA.OgmoNode.Position">
+            <summary>
+            Gets or sets the position of the node.
+            </summary>
+        </member>
+        <member name="T:OgmoXNA.Layers.OgmoTile">
+            <summary>
+            Contains data about an Ogmo Editor tile.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.Layers.OgmoTile.Height">
+            <summary>
+            Gets the height (in pixels) of the tile.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.Layers.OgmoTile.Position">
+            <summary>
+            Gets the position of the tile in the layer.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.Layers.OgmoTile.Tileset">
+            <summary>
+            Gets the <see cref="T:OgmoXNA.OgmoTileset"/> associated with the tile.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.Layers.OgmoTile.TextureOffset">
+            <summary>
+            Gets the texture offset of the tile texture in its tileset.  Only valid if 
+            <see cref="P:OgmoXNA.Layers.Settings.OgmoTileLayerSettings.ExportTileIDs"/> is <c>false</c>.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.Layers.OgmoTile.SourceIndex">
+            <summary>
+            Gets the rectangle source index of the tile texture in its tileset.  Only valid if 
+            <see cref="P:OgmoXNA.Layers.Settings.OgmoTileLayerSettings.ExportTileIDs"/> is <c>true</c>.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.Layers.OgmoTile.Width">
+            <summary>
+            Gets the width (in pixels) of the tile.
+            </summary>
+        </member>
+        <member name="T:OgmoXNA.Layers.OgmoObjectLayer">
+            <summary>
+            Contains data about an Ogmo Editor object layer.
+            </summary>
+        </member>
+        <member name="M:OgmoXNA.Layers.OgmoObjectLayer.GetObject(System.String)">
+            <summary>
+            Gets the first found object with the specified name.
+            </summary>
+            <param name="name">The name of the object.</param>
+            <returns>Returns the first found object with the specified name; otherwise, <c>null</c>.</returns>
+        </member>
+        <member name="M:OgmoXNA.Layers.OgmoObjectLayer.GetObjects(System.String)">
+            <summary>
+            Gets all objects with the specified name.
+            </summary>
+            <param name="name">The name of the object.</param>
+            <returns>Returns an array of objects with the specified name.</returns>
+        </member>
+        <member name="P:OgmoXNA.Layers.OgmoObjectLayer.Objects">
+            <summary>
+            Gets all of the layer's objects.
+            </summary>
+        </member>
+        <member name="T:OgmoXNA.Layers.Settings.OgmoTileLayerSettings">
+            <summary>
+            Contains settings for an Ogmo Editor tile layer.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.Layers.Settings.OgmoTileLayerSettings.ExportTileIDs">
+            <summary>
+            Gets whether to export the the source texture ID of each tile (true) or to export the 
+            texture offset (false).
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.Layers.Settings.OgmoTileLayerSettings.ExportTileSize">
+            <summary>
+            Gets whether to export the size of the layer's tiles.  If <see cref="P:OgmoXNA.Layers.Settings.OgmoTileLayerSettings.MultipleTilesets"/> is 
+            <c>true</c> then each tile will hold this data; otherwise, the layer will.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.Layers.Settings.OgmoTileLayerSettings.MultipleTilesets">
+            <summary>
+            Gets whether the layer can use multiple tilesets.
+            </summary>
+        </member>
+        <member name="T:OgmoXNA.Values.OgmoStringValueTemplate">
+            <summary>
+            Contains data for an Ogmo Editor string value object.
+            </summary>
+        </member>
+        <member name="M:OgmoXNA.Values.OgmoStringValueTemplate.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:OgmoXNA.Values.OgmoStringValue"/>.
+            </summary>
+        </member>
+        <member name="P:OgmoXNA.Values.OgmoStringValueTemplate.MaxChars">
+            <summary>
+            Gets the max number of chars in the string value.
+            </summary>
         </member>
         <member name="T:OgmoXNA.OgmoLevel">
             <summary>
@@ -382,356 +732,6 @@
         <member name="P:OgmoXNA.OgmoLevel.Width">
             <summary>
             Gets the width (in pixels) of the level.
-            </summary>
-        </member>
-        <member name="T:OgmoXNA.Values.OgmoStringValueTemplate">
-            <summary>
-            Contains data for an Ogmo Editor string value object.
-            </summary>
-        </member>
-        <member name="M:OgmoXNA.Values.OgmoStringValueTemplate.#ctor">
-            <summary>
-            Creates an instance of <see cref="T:OgmoXNA.Values.OgmoStringValue"/>.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.Values.OgmoStringValueTemplate.MaxChars">
-            <summary>
-            Gets the max number of chars in the string value.
-            </summary>
-        </member>
-        <member name="T:OgmoXNA.Values.OgmoBooleanValue">
-            <summary>
-            Contains data for an Ogmo Editor boolean value.
-            </summary>
-        </member>
-        <member name="M:OgmoXNA.Values.OgmoBooleanValue.#ctor">
-            <summary>
-            Creates an instance of <see cref="T:OgmoXNA.Values.OgmoBooleanValue"/>.
-            </summary>
-        </member>
-        <member name="T:OgmoXNA.OgmoLevelReader">
-            <summary>
-            Reads <see cref="T:OgmoXNA.OgmoLevel"/> objects from the content pipeline.
-            </summary>
-        </member>
-        <member name="M:OgmoXNA.OgmoLevelReader.Read(Microsoft.Xna.Framework.Content.ContentReader,OgmoXNA.OgmoLevel)">
-            <summary>
-            Reads binary data into an <see cref="T:OgmoXNA.OgmoLevel"/> object.
-            </summary>
-            <param name="input">The <see cref="T:Microsoft.Xna.Framework.Content.ContentReader"/> to read from.</param>
-            <param name="existingInstance">An existing instance of <see cref="T:OgmoXNA.OgmoLevel"/>.</param>
-            <returns>Returns a configured <see cref="T:OgmoXNA.OgmoLevel"/> object.</returns>
-        </member>
-        <member name="T:OgmoXNA.OgmoNode">
-            <summary>
-            Contains data about an Ogmo Editor object node.
-            </summary>
-        </member>
-        <member name="M:OgmoXNA.OgmoNode.#ctor(Microsoft.Xna.Framework.Vector2)">
-            <summary>
-            Creates an instance of <see cref="T:OgmoXNA.OgmoNode"/>.
-            </summary>
-            <param name="position">The position of the node.</param>
-        </member>
-        <member name="P:OgmoXNA.OgmoNode.Position">
-            <summary>
-            Gets or sets the position of the node.
-            </summary>
-        </member>
-        <member name="T:OgmoXNA.Layers.Settings.OgmoGridLayerSettings">
-            <summary>
-            Contains settings for an Ogmo Editor grid layer.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.Layers.Settings.OgmoGridLayerSettings.ExportAsObjects">
-            <summary>
-            Gets whether the grid data should be exported as a series of rectangles (true) or as a 
-            series of individual cells (false).
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.Layers.Settings.OgmoGridLayerSettings.NewLine">
-            <summary>
-            Gets the string value that delimits cell data if <see cref="P:OgmoXNA.Layers.Settings.OgmoGridLayerSettings.ExportAsObjects"/> is false.
-            </summary>
-        </member>
-        <member name="T:OgmoXNA.OgmoTileset">
-            <summary>
-            Contains data about an Ogmo Editor tileset.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.OgmoTileset.Name">
-            <summary>
-            Gets the name of the tileset.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.OgmoTileset.Sources">
-            <summary>
-            Gets the rectangle sources for the tileset texture.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.OgmoTileset.Texture">
-            <summary>
-            Gets the tileset texture.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.OgmoTileset.TextureFile">
-            <summary>
-            Gets the filename of the tileset texture, relative to 
-            <see cref="P:OgmoXNA.OgmoProjectSettings.WorkingDirectory"/>.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.OgmoTileset.TileHeight">
-            <summary>
-            Gets the height (in pixels) of each tile texture in the tileset.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.OgmoTileset.TileWidth">
-            <summary>
-            Gets the width (in pixels) of each tile texture in the tileset.
-            </summary>
-        </member>
-        <member name="T:OgmoXNA.OgmoProject">
-            <summary>
-            Contains data about an Ogmo Editor project.
-            </summary>
-        </member>
-        <member name="M:OgmoXNA.OgmoProject.GetLayerSettings``1(System.String)">
-            <summary>
-            Gets the specified layer settings.
-            </summary>
-            <typeparam name="T">The type of layer settings to retrieve.</typeparam>
-            <param name="name">The name of the layer settings.</param>
-            <returns>Returns the specified layer settings if found; otherwise, <c>null</c>.</returns>
-        </member>
-        <member name="M:OgmoXNA.OgmoProject.GetObjectTemplate(System.String)">
-            <summary>
-            Gets the specified object template.
-            </summary>
-            <param name="name">The name of the object template.</param>
-            <returns>Returns the specified object template if found; otherwise, <c>null</c>.</returns>
-        </member>
-        <member name="M:OgmoXNA.OgmoProject.GetTileset(System.String)">
-            <summary>
-            Gets the specified tileset.
-            </summary>
-            <param name="name">The name of the tileset.</param>
-            <returns>Returns the specified tileset if found; otherwise, <c>null</c>.</returns>
-        </member>
-        <member name="M:OgmoXNA.OgmoProject.GetValueTemplate``1(System.String)">
-            <summary>
-            Gets the specified project value template.
-            </summary>
-            <typeparam name="T">The type of value template to retrieve.</typeparam>
-            <param name="name">The name of the value template.</param>
-            <returns>Returns the specified value template if found; otherwise, <c>null</c>.</returns>
-        </member>
-        <member name="P:OgmoXNA.OgmoProject.LayerSettings">
-            <summary>
-            Gets the project layer settings.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.OgmoProject.Name">
-            <summary>
-            Gets the name of the project.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.OgmoProject.ObjectTemplates">
-            <summary>
-            Gets the project objects.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.OgmoProject.Settings">
-            <summary>
-            Gets the settings for the project.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.OgmoProject.Tilesets">
-            <summary>
-            Gets the project tilesets.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.OgmoProject.ValueTemplates">
-            <summary>
-            Gets the project values.
-            </summary>
-        </member>
-        <member name="T:OgmoXNA.Layers.OgmoTileLayer">
-            <summary>
-            Contains data about an Ogmo Editor tile layer.
-            </summary>
-        </member>
-        <member name="M:OgmoXNA.Layers.OgmoTileLayer.GetTileset(System.String)">
-            <summary>
-            Gets the specified tileset.
-            </summary>
-            <param name="name">The name of the tileset.</param>
-            <returns>Returns the specified tileset if it exists; otherwise, <c>null</c>.</returns>
-        </member>
-        <member name="P:OgmoXNA.Layers.OgmoTileLayer.TileHeight">
-            <summary>
-            Gets the height (in pixels) of tiles in the layer.  Only valid if 
-            <see cref="P:OgmoXNA.Layers.Settings.OgmoTileLayerSettings.ExportTileSize"/> is <c>true</c>, and 
-            <see cref="P:OgmoXNA.Layers.Settings.OgmoTileLayerSettings.MultipleTilesets"/> is <c>false</c>.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.Layers.OgmoTileLayer.Tiles">
-            <summary>
-            Gets the layer's tiles.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.Layers.OgmoTileLayer.Tilesets">
-            <summary>
-            Gets the layer's tilesets.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.Layers.OgmoTileLayer.TileWidth">
-            <summary>
-            Gets the width (in pixels) of tiles in the layer.  Only valid if 
-            <see cref="P:OgmoXNA.Layers.Settings.OgmoTileLayerSettings.ExportTileSize"/> is <c>true</c>, and 
-            <see cref="P:OgmoXNA.Layers.Settings.OgmoTileLayerSettings.MultipleTilesets"/> is <c>false</c>.
-            </summary>
-        </member>
-        <member name="T:OgmoXNA.OgmoProjectSettings">
-            <summary>
-            Contains settings for an Ogmo Editor project.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.OgmoProjectSettings.Height">
-            <summary>
-            Gets the default height (in pixels) of project levels.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.OgmoProjectSettings.MaxHeight">
-            <summary>
-            Gets the max height (in pixels) of project levels.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.OgmoProjectSettings.MaxWidth">
-            <summary>
-            Gets the max width (in pixels) of project levels.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.OgmoProjectSettings.MinHeight">
-            <summary>
-            Gets the min height (in pixels) of project levels.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.OgmoProjectSettings.MinWidth">
-            <summary>
-            Gets the min width (in pixels) of project levels.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.OgmoProjectSettings.Width">
-            <summary>
-            Gets the default width (in pixels) of project levels.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.OgmoProjectSettings.WorkingDirectory">
-            <summary>
-            Gets the working directory of project assets relative to the project file.
-            </summary>
-        </member>
-        <member name="T:OgmoXNA.Layers.Settings.OgmoTileLayerSettings">
-            <summary>
-            Contains settings for an Ogmo Editor tile layer.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.Layers.Settings.OgmoTileLayerSettings.ExportTileIDs">
-            <summary>
-            Gets whether to export the the source texture ID of each tile (true) or to export the 
-            texture offset (false).
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.Layers.Settings.OgmoTileLayerSettings.ExportTileSize">
-            <summary>
-            Gets whether to export the size of the layer's tiles.  If <see cref="P:OgmoXNA.Layers.Settings.OgmoTileLayerSettings.MultipleTilesets"/> is 
-            <c>true</c> then each tile will hold this data; otherwise, the layer will.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.Layers.Settings.OgmoTileLayerSettings.MultipleTilesets">
-            <summary>
-            Gets whether the layer can use multiple tilesets.
-            </summary>
-        </member>
-        <member name="T:OgmoXNA.Layers.OgmoObjectLayer">
-            <summary>
-            Contains data about an Ogmo Editor object layer.
-            </summary>
-        </member>
-        <member name="M:OgmoXNA.Layers.OgmoObjectLayer.GetObject(System.String)">
-            <summary>
-            Gets the first found object with the specified name.
-            </summary>
-            <param name="name">The name of the object.</param>
-            <returns>Returns the first found object with the specified name; otherwise, <c>null</c>.</returns>
-        </member>
-        <member name="M:OgmoXNA.Layers.OgmoObjectLayer.GetObjects(System.String)">
-            <summary>
-            Gets all objects with the specified name.
-            </summary>
-            <param name="name">The name of the object.</param>
-            <returns>Returns an array of objects with the specified name.</returns>
-        </member>
-        <member name="P:OgmoXNA.Layers.OgmoObjectLayer.Objects">
-            <summary>
-            Gets all of the layer's objects.
-            </summary>
-        </member>
-        <member name="T:OgmoXNA.Values.OgmoNumberValueTemplate">
-            <summary>
-            Contains data about Ogmo Editor number (float) value objects.
-            </summary>
-        </member>
-        <member name="M:OgmoXNA.Values.OgmoNumberValueTemplate.#ctor">
-            <summary>
-            Creates an instance of <see cref="T:OgmoXNA.Values.OgmoNumberValue"/>.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.Values.OgmoNumberValueTemplate.Max">
-            <summary>
-            Gets the max number (float) value.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.Values.OgmoNumberValueTemplate.Min">
-            <summary>
-            Gets the min number (float) value.
-            </summary>
-        </member>
-        <member name="T:OgmoXNA.Layers.OgmoTile">
-            <summary>
-            Contains data about an Ogmo Editor tile.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.Layers.OgmoTile.Height">
-            <summary>
-            Gets the height (in pixels) of the tile.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.Layers.OgmoTile.Position">
-            <summary>
-            Gets the position of the tile in the layer.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.Layers.OgmoTile.Tileset">
-            <summary>
-            Gets the <see cref="T:OgmoXNA.OgmoTileset"/> associated with the tile.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.Layers.OgmoTile.TextureOffset">
-            <summary>
-            Gets the texture offset of the tile texture in its tileset.  Only valid if 
-            <see cref="P:OgmoXNA.Layers.Settings.OgmoTileLayerSettings.ExportTileIDs"/> is <c>false</c>.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.Layers.OgmoTile.SourceIndex">
-            <summary>
-            Gets the rectangle source index of the tile texture in its tileset.  Only valid if 
-            <see cref="P:OgmoXNA.Layers.Settings.OgmoTileLayerSettings.ExportTileIDs"/> is <c>true</c>.
-            </summary>
-        </member>
-        <member name="P:OgmoXNA.Layers.OgmoTile.Width">
-            <summary>
-            Gets the width (in pixels) of the tile.
             </summary>
         </member>
     </members>
